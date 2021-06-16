@@ -1,0 +1,33 @@
+{
+  "name": "mean-authentication",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-jwt": "^5.3.1",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.2",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.4"
+  },
+  "description": "A look at managing user authentication in the MEAN stack using the most common MEAN architecture of having an Angular single-page app using a REST API built with Node, Express and MongoDB.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitepoint-editors/mean-authentication.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sitepoint-editors/mean-authentication/issues"
+  },
+  "homepage": "https://github.com/sitepoint-editors/mean-authentication#readme"
+}
