@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1>Register</h1>
+      <h1>S'enregister</h1>
       <p class="lead">
-        Already a member? Please <a routerLink="/login">log in</a> instead.
+        Déjà menbrer? Veuillez vous <a routerLink="/login">connecter</a>.
       </p>
       <form (submit)="register()">
         <div class="form-group">
-          <label for="name">Full name</label>
+          <label for="name">Nom :</label>
           <input
             type="text"
             class="form-control"
@@ -17,7 +17,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="email">Email address</label>
+          <label for="email">Email :</label>
           <input
             type="email"
             class="form-control"
@@ -27,7 +27,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Mot de pass :</label>
           <input
             type="password"
             class="form-control"
@@ -36,7 +36,7 @@
             [(ngModel)]="credentials.password"
           />
         </div>
-        <button type="submit" class="btn btn-default">Register!</button>
+        <button type="submit" class="btn btn-default">S'enregister !</button>
       </form>
     </div>
   </div>
