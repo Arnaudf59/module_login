@@ -11,6 +11,7 @@ export class RegisterComponent {
     email: "",
     name: "",
     prenom: "",
+    date_naissance: "",
     password: ""
   };
 

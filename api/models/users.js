@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  date_naissance: {
+    type: String,
+    required: true
+  },
   hash: String,
   salt: String
 });
@@ -44,6 +48,7 @@ userSchema.methods.generateJwt = function() {
       email: this.email,
       name: this.name,
       prenom: this.prenom,
+      date_naissance: this.date_naissance,
       exp: parseInt(expiry.getTime() / 1000)
     },
     'MY_SECRET'

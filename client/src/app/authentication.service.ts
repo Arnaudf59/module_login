@@ -9,6 +9,7 @@ export interface UserDetails {
   email: string;
   name: string;
   prenom: string;
+  date_naissance: string;
   exp: number;
   iat: number;
 }
@@ -22,6 +23,7 @@ export interface TokenPayload {
   password: string;
   name?: string;
   prenom?: string;
+  date_naissance?: string;
 }
 
 @Injectable({
