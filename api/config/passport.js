@@ -13,19 +13,19 @@ passport.use(
         if (err) {
           return done(err);
         }
-        // Return if user not found in database
+        // Retour si utilisateur introuvable dans la base de données
         if (!user) {
           return done(null, false, {
-            message: 'User not found'
+            message: 'Utilisateur non trouvé'
           });
         }
-        // Return if password is wrong
+        // Retour si le mot de passe est erroné
         if (!user.validPassword(password)) {
           return done(null, false, {
-            message: 'Password is wrong'
+            message: 'Le mot de passe est erroné'
           });
         }
-        // If credentials are correct, return the user object
+        // Si les informations d'identification sont correctes, retournez l'objet utilisateur
         return done(null, user);
       });
     }

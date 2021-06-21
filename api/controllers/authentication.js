@@ -6,6 +6,7 @@ module.exports.register = (req, res) => {
   const user = new User();
 
   user.name = req.body.name;
+  user.prenom = req.body.prenom;
   user.email = req.body.email;
 
   user.setPassword(req.body.password);
@@ -21,13 +22,13 @@ module.exports.register = (req, res) => {
 
 module.exports.login = (req, res) => {
   passport.authenticate('local', (err, user, info) => {
-    // If Passport throws/catches an error
+    // Si Passport renvoie une erreur
     if (err) {
       res.status(404).json(err);
       return;
     }
 
-    // If a user is found
+    // Si un utilisateur est trouvé
     if (user) {
       const token = user.generateJwt();
       res.status(200);
@@ -35,7 +36,7 @@ module.exports.login = (req, res) => {
         token: token
       });
     } else {
-      // If user is not found
+      // Si l'utilisateur n'est pas trouvé
       res.status(401).json(info);
     }
   })(req, res);

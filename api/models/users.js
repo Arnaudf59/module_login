@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  prenom: {
+    type: String,
+    required: true
+  },
   hash: String,
   salt: String
 });
@@ -39,10 +43,11 @@ userSchema.methods.generateJwt = function() {
       _id: this._id,
       email: this.email,
       name: this.name,
+      prenom: this.prenom,
       exp: parseInt(expiry.getTime() / 1000)
     },
     'MY_SECRET'
-  ); // DO NOT KEEP YOUR SECRET IN THE CODE!
+  ); // NE GARDE PAS VOTRE SECRET DANS LE CODE !
 };
 
 mongoose.model('User', userSchema);

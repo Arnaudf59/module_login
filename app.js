@@ -12,7 +12,7 @@ const routesApi = require('./api/routes/index');
 
 const app = express();
 
-// view engine setup
+// voir la configuration
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -25,12 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use("/api", routesApi);
 
-// catch 404 and forward to error handler
+// récupère 404 et transmettre au gestionnaire d'erreurs
 app.use((req, res, next) => {
   next(createError(404));
 });
 
-// Catch unauthorised errors
+// Détecter les erreurs non autorisées
 app.use((err, req, res) => {
   if (err.name === 'UnauthorizedError') {
     res.status(401);
@@ -38,13 +38,13 @@ app.use((err, req, res) => {
   }
 });
 
-// error handler
+// gestionnaire d'erreurs
 app.use((err, req, res, next) => {
-  // set locals, only providing error in development
+  // récupere les erreur de l'environement utilisé, ne fournissant qu'une erreur de développement
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // rendre la page d'erreur
   res.status(err.status || 500);
   res.render('error');
 });
