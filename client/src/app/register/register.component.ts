@@ -12,6 +12,7 @@ export class RegisterComponent {
     name: "",
     prenom: "",
     date_naissance: "",
+    admin: false,
     password: ""
   };
 
@@ -20,7 +21,11 @@ export class RegisterComponent {
   register() {
     this.auth.register(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl("/profile");
+        if(this.credentials.admin == true){
+          this.router.navigateByUrl("/admin");
+        }else{
+          this.router.navigateByUrl("/profile");
+        };
       },
       err => {
         console.error(err);

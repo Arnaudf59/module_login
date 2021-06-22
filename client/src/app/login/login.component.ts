@@ -9,15 +9,22 @@ import { Router } from "@angular/router";
 export class LoginComponent {
   credentials: TokenPayload = {
     email: "",
+    admin: "",
     password: ""
   };
 
   constructor(private auth: AuthenticationService, private router: Router) {}
-
+  
   login() {
+    
     this.auth.login(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl("/profile");
+        alert(this.credentials.email);
+        if(this.credentials.admin == "1"){
+          this.router.navigateByUrl("/admin");
+        }else{
+          this.router.navigateByUrl("/profile");
+        }
       },
       err => {
         console.error(err);

@@ -10,6 +10,7 @@ export interface UserDetails {
   name: string;
   prenom: string;
   date_naissance: string;
+  admin: string;
   exp: number;
   iat: number;
 }
@@ -24,6 +25,7 @@ export interface TokenPayload {
   name?: string;
   prenom?: string;
   date_naissance?: string;
+  admin: string;
 }
 
 @Injectable({
@@ -54,11 +56,11 @@ export class AuthenticationService {
     let base$;
 
     if (method === "post") {
-      base$ = this.http.post(`/api/${type}`, user);
+        base$ = this.http.post(`/api/${type}`, user);
     } else {
-      base$ = this.http.get(`/api/${type}`, {
-        headers: { Authorization: `Bearer ${this.getToken()}` }
-      });
+        base$ = this.http.get(`/api/${type}`, {
+          headers: { Authorization: `Bearer ${this.getToken()}` }
+        });
     }
 
     const request = base$.pipe(
@@ -69,7 +71,6 @@ export class AuthenticationService {
         return data;
       })
     );
-
     return request;
   }
 
@@ -105,6 +106,7 @@ export class AuthenticationService {
   }
 
   public login(user: TokenPayload): Observable<any> {
+    //alert(user.admin);
     return this.request("post", "login", user);
   }
 

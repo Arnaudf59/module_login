@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+const { runInThisContext } = require('vm');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -20,6 +21,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  admin: String,
   hash: String,
   salt: String
 });
@@ -48,6 +50,7 @@ userSchema.methods.generateJwt = function() {
       email: this.email,
       name: this.name,
       prenom: this.prenom,
+      admin: this.admin,
       date_naissance: this.date_naissance,
       exp: parseInt(expiry.getTime() / 1000)
     },
