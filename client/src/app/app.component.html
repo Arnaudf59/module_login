@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Connexion</a></li>
         <li *ngIf="auth.isLoggedIn()">
-          <a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a>
+          <a routerLink="/profile">{{ auth.getUserDetails()?.name }} {{ auth.getUserDetails()?.prenom }}</a>
         </li>
         <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Deconnexion</a></li>
       </ul>
